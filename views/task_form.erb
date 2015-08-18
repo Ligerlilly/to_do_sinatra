@@ -1,0 +1,13 @@
+h1>Make a new Task</h1>
+
+<form action="/lists" method="post">
+  <div class="form-group">
+    <input type="hidden" name="list_id" value="<%= @list_id %>">
+    <label for="task_name">Task Name:</label>
+    <input type="text" name="task_name">
+    <label for="task_description">Task description:</label>
+    <input type="text" name="task_description">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
