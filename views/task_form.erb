@@ -1,10 +1,22 @@
+<h1>Tasks for <%= @list.name %></h1>
+
+<% if @tasks.any? %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There are no lists add one
+  </p>
+<% end %>
+
 <h1>Make a new Task</h1>
 
 <form action="/list/<%= @list_id %>/tasks" method="post">
   <div class="form-group">
     <input type="hidden" name="list_id" value="<%= @list_id %>">
-    <label for="task_name">Task Name:</label>
-    <input type="text" name="task_name">
     <label for="task_description">Task description:</label>
     <input type="text" name="task_description">
   </div>

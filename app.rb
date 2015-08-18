@@ -14,7 +14,6 @@ end
 
 get '/lists/new' do
 
-
 	erb(:list_form)
 end
 
@@ -30,7 +29,8 @@ end
 
 get '/list/:id/tasks/new' do
 	@list_id = params.fetch 'id'
-
+	@list = List.find(@list_id.to_i)
+	@tasks = @list.tasks
 	erb :task_form
 end
 

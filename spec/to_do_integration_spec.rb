@@ -13,4 +13,16 @@ describe 'to_do path', { type: :feature } do
     click_button 'Submit'
     expect(page).to have_content 'Success'
   end
+
+  it 'should allow the user to add a new task for a list' do
+    list = List.new({name: "asdf", id: nil})
+    list.save
+    visit '/'
+    expect(page).to have_content 'asdf'
+    click_link 'asdf'
+    expect(page).to have_content 'There are no lists'
+    fill_in 'task_description', with: 'bob'
+    click_button 'Submit'
+    expect(page).to have_content 'bob'
+  end
 end
