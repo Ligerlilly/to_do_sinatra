@@ -1,0 +1,20 @@
+<h1>Welcom</h1>
+
+<% if @message != "" || @message.any? || @message %>
+  <div id="message-container" class="row">
+    <p class="lead"> <%= @message %></p>
+  </div>
+<% end %>
+
+<% if @lists.any? %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= list.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There are no lists add one
+  </p>
+<% end %>
+<a href="/lists/new">Add List</a>
