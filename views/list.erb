@@ -1,0 +1,15 @@
+
+<h2><%= @list.name %></h2>
+
+<% if @tasks.any? %>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There are no lists add one
+  </p>
+<% end %>
+<a href="/lists/new">Add List</a>

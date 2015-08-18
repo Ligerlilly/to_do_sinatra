@@ -28,13 +28,20 @@ post '/lists' do
 	erb :index
 end
 
-get 'list/:id/task/new' do
+get '/list/:id/tasks/new' do
 	@list_id = params.fetch 'id'
+
 	erb :task_form
 end
 
 post '/list/:id/tasks' do
-	@task = Task.new(params)
+	list_id = params.fetch 'list_id'
+	@list  = List.find(list_id.to_i)
+	description = params.fetch 'task_description'
+	due_date = '2015-8-18'
+	complete = false
+	@task = Task.new({description: description, due_date: due_date, complete: complete, list_id: list_id})
 	@task.save
+	@tasks = @list.tasks
 	erb :list
 end

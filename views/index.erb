@@ -9,7 +9,7 @@
 <% if @lists.any? %>
   <ul>
     <% @lists.each do |list| %>
-      <a href='list/<%= list.id %>/task/new'><li><%= list.name %></li></a>
+      <a href='list/<%= list.id %>/tasks/new'><li><%= list.name %></li></a>
     <% end %>
   </ul>
 <% else %>
